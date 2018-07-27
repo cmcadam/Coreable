@@ -14,7 +14,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
 try:
     from coreable.settings.local import *
 except:
