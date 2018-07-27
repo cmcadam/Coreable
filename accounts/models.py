@@ -16,7 +16,7 @@ class UserProfile(models.Model):
     # website = models.URLField(default='')
     # phone = models.IntegerField(default=0)
     # image = models.ImageField(upload_to='profile_image', blank=True)
-    review_team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    review_team = models.ForeignKey(Team, on_delete=models.CASCADE, blank=True, null=True)
 
     # sydney = UserProfileManager()
 
