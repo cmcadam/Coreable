@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>Do they use appropoate tone of voice when communicating?</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Is unable to adopt their tone to be appropraite for different situations.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Makes an attempt to use appropriate tones but is prone to lapses in judgement/control.</p>
+      </div>
+      <div class="col-md-2">
+        <p>This individual can create a positive mood but has lapses in judgement.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Is able to provide a positive tone and mood.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Is a able to provide a positive mood and tone while creating a positive environment to help/influence others to adopt in sistutations.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit">Next</button>
+      </form>
+    </div>
+
+
+    {% endblock %}

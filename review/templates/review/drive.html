@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>Do they drive for a high result for the end goal?</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Is easily distracted from the end goal and doesn't prioritize the task efficiently.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Focus on the end goal most of the time, is motivated under prompting and external expectations.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Doesn't get distracted often, is motivated by the result of the team's work rather than themsevles.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Self Motivated for the teams result, perserver through hard times, able to handle constructive feedback, does not get distracted easily.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Is a role model for the team, is able to lead success and maintain the focus for each member of the group.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit">Next</button>
+      </form>
+    </div>
+
+
+    {% endblock %}

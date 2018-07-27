@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>Is their language clear and precise when communicating?</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Struggle to have a conversation without going off topic or mixed messages being delivered. No attempt when delivering a message/communicating to adjust the type of langauge used to help the audience understand a message. Often uses unfamiliar jargon.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Attempts but mostly fails to communicate/deliver a message effectively. Most conversations go around in circles with the same message being delivered multiple times.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Is able to adjust langauge used when delivering a message to suit the current audience.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Is able to deliver even the most complex messages concisely and coherently with only minor clarification needed.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Is always able to deliever a complex message concisely and effectively. Helps others to understand messages that could be unclear or new to them.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+
+
+    {% endblock %}

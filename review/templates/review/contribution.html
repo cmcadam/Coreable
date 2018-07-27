@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>Do they strive for excellence in their contributions?</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Shows no concern about work.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Does work just to get it done, with no concern for quality.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Does the best work possible on first effort.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Revises work to improve it.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Strives for excellence, seeks and uses outside feedback from improvement.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit">Next</button>
+      </form>
+    </div>
+
+
+    {% endblock %}

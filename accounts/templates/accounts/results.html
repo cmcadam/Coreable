@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+<script>
+    {% block jquery %}
+        {% comment %}var endpoint = '/account/statistics/'
+
+        $.ajax({
+            method: "GET",
+            url: endpoint,
+            success: function(data){
+              console.log(data)
+            },
+            error: function(error_data){
+                console.log(error_data)
+            }
+        }){% endcomment %}
+
+    var ctx = document.getElementById("radar_chart").getContext('2d');
+
+    var myRadarChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Chris', 'Peter', 'Nic', 'Johnny', 'Alex'],
+            datasets: [{
+                label: 'Communication Score',
+                data: [1, 2, 3, 4, 5],
+                backgroundColor: 'rgba(0,0,255,0.7)',
+                pointBackgroundColor: 'rgba(0,0,255,0.7)',
+                pointBorderColor: 'rgba(0,0,255,0.7)',
+            }]
+        },
+    });
+
+    var ctx2 = document.getElementById("radar_chart2").getContext('2d');
+
+    var myRadarChart = new Chart(ctx2, {
+        type: 'radar',
+        data: {
+            labels: ['Chris', 'Peter', 'Nic', 'Johnny', 'Alex'],
+            datasets: [{
+                label: 'Positivity Score',
+                data: [5, 3, 1, 4, 5],
+                backgroundColor: 'rgba(0,255,0,0.7)',
+                pointBackgroundColor: 'rgba(0,255,0,0.7)',
+                pointBorderColor: 'rgba(0,255,0,0.7)',
+            }]
+        },
+        options: {
+            beginAtZero:true
+        }
+    });
+
+    var ctx3 = document.getElementById("radar_chart3").getContext('2d');
+
+    var myRadarChart = new Chart(ctx3, {
+        type: 'radar',
+        data: {
+            labels: ['Chris', 'Peter', 'Nic', 'Johnny', 'Alex'],
+            datasets: [{
+                label: 'Creativity Score',
+                data: [3, 1, 5, 4, 2],
+                backgroundColor: 'rgba(255,0,0,0.7)',
+                pointBackgroundColor: 'rgba(255,0,0,0.7)',
+                pointBorderColor: 'rgba(255,0,0,0.7)',
+            }]
+        },
+        options: {
+            beginAtZero:true
+        }
+    });
+{% endblock %}
+</script>
+
+    {% block head %}
+    <title>Statistics</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Results</h1>
+    <p>Here are your results</p>
+    <div class="row">
+      <div class="col-md-4">
+        <canvas id="radar_chart"></canvas>
+      </div>
+      <div class="col-md-4">
+        <canvas id="radar_chart2"></canvas>
+      </div>
+      <div class="col-md-4">
+        <canvas id="radar_chart3"></canvas>
+      </div>
+    </div>
+    {% endblock %}

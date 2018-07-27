@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>Do they foster a postive climate?</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Exhibits a lack of awareness for a positive climate. Resistance to prompting.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Cooperates at times, within structured activities and friendly under prompting.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Cooperates within the team environment without prompting.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Cooperates well with others, enthusiastic and positve. Occationally prompts others to engage positively.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Seeks to continuously and consistently create a positive environment. Acts as a role model for the team through prompting being supportive and encouraging and showing genuine concern for others.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit" >Submit</button>
+      </form>
+    </div>
+
+
+    {% endblock %}

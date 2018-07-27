@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>Are they open with sharing ideas and new concepts</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Is unable to/refuses to communicate openly to the team about anything outside of the task at hand.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Attempts to communicate at times about issues outside of the task at hand.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Helps cultivate an environment where other people share.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Communicates with everyone and is considerate of other team members emotional state.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Communicates with everyone and is open to sharing personal insights and experiences.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit">Next</button>
+      </form>
+    </div>
+
+
+    {% endblock %}

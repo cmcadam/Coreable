@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>How well do they handle construcitve feedback and alternate opinions?</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Is open to constructive feedback and opinions that is familiar or consistent with their own beliefs.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Is open to some unfamiliar or contradictory constructive feedback and opinions.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Can accept all forms of constructive feedback.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Can accept all forms of constructive feedback and is able to provide feedback to others in a helpful way.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Takes all constructive feedback and opinions on board, shows a change in behaviour and is able to provide feedback to others in a respectful way.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit">Next</button>
+      </form>
+    </div>
+
+
+    {% endblock %}

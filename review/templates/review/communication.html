@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>Do they contribute with feedback and discussion?</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Disengaged when doing tasks, when prompted gives minimal effective contribution.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Contributes to discussions and work under prompting and external expectations.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Regularly makes meaningful and clarifying contributions to work and discussion; sometimes offers ideas, asks questions.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Contributes to work and discussion offering insightful ideas and asking clarifying and meaningful questions to extend understanding. Takes risks by initiating discussion and asserting opinions.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Contributes to disccusions and work by offering insights and asking meaninful questions to extend understanding, Does not hesitate to complete or help with others works and picks up others slack if team not contributing equally.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit">Next</button>
+      </form>
+    </div>
+
+
+    {% endblock %}

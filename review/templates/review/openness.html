@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>Are they open to new ideas?</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Dismisses ideas that are unfamiliar or contradict their own experiences.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Is open to some unfamiliar or contradictory ideas.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Considers unfamiliar or contradictory ideas with an open mind.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Considers unfamiliar or contradicotry ideas with an open mind; compares and constrats different view points.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Seeks out and explores new and contradictoary ideas.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit">Next</button>
+      </form>
+    </div>
+
+
+    {% endblock %}

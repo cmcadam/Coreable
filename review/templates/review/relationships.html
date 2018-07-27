@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>Do they build repoire with team members?</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>No conscious effort to build repoire with other team members.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Attempts/is able to build repoire with team members who are like-minded/similar nature.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Attempts to build repoire with all team members, and is able to build with most.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Can build close connection with majority and facilitates further connection being made.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Is not only able to connect and build a relationship with other team members but actively helps to create and build relationship between other team members.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit">Next</button>
+      </form>
+    </div>
+
+
+    {% endblock %}

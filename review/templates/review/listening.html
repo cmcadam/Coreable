@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <br>
+    <h1>Review</h1>
+    <h2>Do they listen to others during conversation?</h2>
+    <div class="row">
+      <div class="col-md-2">
+        <p>Person does not listen, interupts when others speak.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Person does not listen consistently, sometimes having to be prompted.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Person does listen consistently.</p>
+      </div>
+      <div class="col-md-2">
+        <p>Person listens consistently, is respectful of others point of view and ask clarifying questions if unsure.</p>
+      </div>
+      <div class="col-md-3">
+        <p>Person listens and tries to incoperate others ideas and build off ideas with appropriate body language.</p>
+      </div>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <button class="btn btn-primary" type="submit">Next</button>
+      </form>
+    </div>
+
+
+    {% endblock %}
