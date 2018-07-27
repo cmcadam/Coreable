@@ -23,6 +23,8 @@ DATABASES = {
     }
 }
 
+STATIC_ROOT = '/home/cmcadam/coreable/static'
+
 try:
     from coreable.settings.local import *
 except:

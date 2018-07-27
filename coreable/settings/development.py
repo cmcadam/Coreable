@@ -14,6 +14,9 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 try:
     from coreable.settings.local import *
 except:
