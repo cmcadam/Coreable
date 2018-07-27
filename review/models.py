@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Team(models.Model):
-    name = models.CharField(max_length=25)
+    name = models.CharField(max_length=25, required=False)
 
     def __str__(self):
         return self.name
