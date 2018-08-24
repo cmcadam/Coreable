@@ -3,11 +3,13 @@ from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm,  PasswordChangeForm
 from accounts.forms import (
     RegistrationForm,
-    EditProfileForm,
+    AddTeamForm,
 )
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from accounts.models import UserProfile
 
 
 # Register page view
@@ -15,11 +17,16 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('/account')
+            user = form.save()
+            UserProfile.objects.create(
+                user=user,
+                review_team=form.cleaned_data['review_team'],
+                first_name=form.cleaned_data['first_name'],
+                last_name=form.cleaned_data['last_name'],
+            )
+            return redirect('/home')
     else:
         form = RegistrationForm()
-
         args = {'form': form}
         return render(request, 'accounts/reg_form.html', args)
 
@@ -36,14 +43,14 @@ def view_profile(request, pk=None):
 # Edit profile page view
 def edit_profile(request):
     if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
+        form = AddTeamForm(request.POST, instance=request.user)
 
         if form.is_valid():
             form.save()
             return redirect('/account/profile')
 
     else:
-        form = EditProfileForm(instance=request.user)
+        form = AddTeamForm(instance=request.user)
         args = {'form': form}
         return render(request, 'accounts/edit_profile.html', args)
 

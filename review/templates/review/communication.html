@@ -18,18 +18,25 @@
       <div class="col-md-2">
         <p>Regularly makes meaningful and clarifying contributions to work and discussion; sometimes offers ideas, asks questions.</p>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-3">
         <p>Contributes to work and discussion offering insightful ideas and asking clarifying and meaningful questions to extend understanding. Takes risks by initiating discussion and asserting opinions.</p>
       </div>
       <div class="col-md-3">
         <p>Contributes to disccusions and work by offering insights and asking meaninful questions to extend understanding, Does not hesitate to complete or help with others works and picks up others slack if team not contributing equally.</p>
       </div>
-      <form method="post">
+      {% for user in team_members %}
+      <form method="post" id="review_form_{{user.user_id}}">
+          <p>Reviewing: {{ user.first_name }}  {{ user.last_name }}</p>
           {% csrf_token %}
           {{ form.as_p }}
-
           <button class="btn btn-primary" type="submit">Next</button>
       </form>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $("#review_form_{{user.user_id }}").children().children("#id_pk").val("{{user.user_id}}");
+        });
+      </script>
+      {% endfor %}
     </div>
 
 

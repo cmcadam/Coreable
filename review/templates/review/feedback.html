@@ -8,4 +8,10 @@
     <br>
     <h1>Review Complete</h1>
     <p>Thank you for completing the survey, your results will be displayed soon!</p>
+    <p>Please take the time to complete the feedback form!</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit" >Submit</button>
+    </form>
     {% endblock %}

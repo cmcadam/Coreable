@@ -24,12 +24,19 @@
       <div class="col-md-3">
         <p>Is a able to provide a positive mood and tone while creating a positive environment to help/influence others to adopt in sistutations.</p>
       </div>
-      <form method="post">
+      {% for user in team_members %}
+      <form method="post" id="review_form_{{user.user_id}}">
+          <p>Reviewing: {{ user.first_name }}  {{ user.last_name }}</p>
           {% csrf_token %}
           {{ form.as_p }}
-
           <button class="btn btn-primary" type="submit">Next</button>
       </form>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $("#review_form_{{user.user_id }}").children().children("#id_pk").val("{{user.user_id}}");
+        });
+      </script>
+      {% endfor %}
     </div>
 
 

@@ -9,7 +9,7 @@
     <h1>Review</h1>
     <h2>Is their language clear and precise when communicating?</h2>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-3">
         <p>Struggle to have a conversation without going off topic or mixed messages being delivered. No attempt when delivering a message/communicating to adjust the type of langauge used to help the audience understand a message. Often uses unfamiliar jargon.</p>
       </div>
       <div class="col-md-2">
@@ -21,15 +21,22 @@
       <div class="col-md-2">
         <p>Is able to deliver even the most complex messages concisely and coherently with only minor clarification needed.</p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <p>Is always able to deliever a complex message concisely and effectively. Helps others to understand messages that could be unclear or new to them.</p>
       </div>
-      <form method="post">
+      {% for user in team_members %}
+      <form method="post" id="review_form_{{user.user_id}}">
+          <p>Reviewing: {{ user.first_name }}  {{ user.last_name }}</p>
           {% csrf_token %}
           {{ form.as_p }}
-
-          <button class="btn btn-primary" type="submit">Submit</button>
+          <button class="btn btn-primary" type="submit">Next</button>
       </form>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $("#review_form_{{user.user_id }}").children().children("#id_pk").val("{{user.user_id}}");
+        });
+      </script>
+      {% endfor %}
     </div>
 
 
