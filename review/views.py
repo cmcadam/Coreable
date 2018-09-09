@@ -38,7 +38,7 @@ def relationships_review(request):
                  trait = 'relationships',
                  trait_score = trait_score,
             )
-            return redirect('/review/contribution')
+            return redirect('/review/relationships')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
@@ -58,7 +58,7 @@ def contribution_review(request):
                  trait = 'contribution',
                  trait_score = trait_score,
             )
-            return redirect('/review/diplomacy')
+            return redirect('/review/contribution')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
@@ -78,7 +78,7 @@ def diplomacy_review(request):
                  trait = 'diplomacy',
                  trait_score = trait_score,
             )
-            return redirect('/review/openness')
+            return redirect('/review/diplomacy')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
@@ -98,7 +98,7 @@ def openness_review(request):
                  trait = 'openness',
                  trait_score = trait_score,
             )
-            return redirect('/review/drive')
+            return redirect('/review/openness')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
@@ -118,7 +118,7 @@ def drive_review(request):
                  trait = 'drive',
                  trait_score = trait_score,
             )
-            return redirect('/review/tone')
+            return redirect('/review/drive')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
@@ -138,7 +138,7 @@ def tone_review(request):
                  trait = 'tone',
                  trait_score = trait_score,
             )
-            return redirect('/review/communication')
+            return redirect('/review/tone')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
@@ -158,7 +158,7 @@ def communication_review(request):
                  trait = 'communication',
                  trait_score = trait_score,
             )
-            return redirect('/review/listening')
+            return redirect('/review/communication')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
@@ -178,7 +178,7 @@ def listening_review(request):
                  trait = 'listening',
                  trait_score = trait_score,
             )
-            return redirect('/review/idea-sharing')
+            return redirect('/review/listening')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
@@ -198,7 +198,7 @@ def idea_sharing_review(request):
                  trait = 'idea sharing',
                  trait_score = trait_score,
             )
-            return redirect('/review/delivery')
+            return redirect('/review/idea-sharing')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
@@ -218,7 +218,7 @@ def delivery_review(request):
                  trait = 'delivery',
                  trait_score = trait_score,
             )
-            return redirect('/review/complete')
+            return redirect('/review/delivery')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
