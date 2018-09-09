@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm,  PasswordChangeForm
 from accounts.forms import (
     RegistrationForm,
-    AddTeamForm,
+    ChangeTeamForm,
 )
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
@@ -41,16 +41,16 @@ def view_profile(request, pk=None):
     return render(request, 'accounts/profile.html', args)
 
 # Edit profile page view
-def edit_profile(request):
+def change_team(request):
     if request.method == 'POST':
-        form = AddTeamForm(request.POST, instance=request.user)
+        form = ChangeTeamForm(request.POST, instance=request.user)
 
         if form.is_valid():
             form.save()
             return redirect('/account/profile')
 
     else:
-        form = AddTeamForm(instance=request.user)
+        form = ChangeTeamForm(instance=request.user)
         args = {'form': form}
         return render(request, 'accounts/edit_profile.html', args)
 

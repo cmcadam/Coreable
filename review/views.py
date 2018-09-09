@@ -18,7 +18,7 @@ def positivity_review(request):
                  trait = 'positivity',
                  trait_score = trait_score,
             )
-            return redirect('/review/relationships')
+            return redirect('/review/positivity')
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)

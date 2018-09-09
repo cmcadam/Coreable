@@ -24,20 +24,25 @@
       <div class="col-md-3">
         <p>Is a role model for the team, is able to lead success and maintain the focus for each member of the group.</p>
       </div>
-      {% for user in team_members %}
-      <form method="post" id="review_form_{{user.user_id}}">
-          <p>Reviewing: {{ user.first_name }}  {{ user.last_name }}</p>
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button class="btn btn-primary" type="submit">Next</button>
-      </form>
-      <script type="text/javascript">
-        $(document).ready(function(){
-          $("#review_form_{{user.user_id }}").children().children("#id_pk").val("{{user.user_id}}");
-        });
-      </script>
-      {% endfor %}
     </div>
-
+      {% for user in team_members %}
+      <div>
+        <form method="post" id="review_form_{{user.user_id}}">
+            <p>Reviewing: {{ user.first_name }}  {{ user.last_name }}</p>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-outline-primary" type="submit">Save</button>
+        </form>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $("#review_form_{{user.user_id }}").children().children("#id_pk").val("{{user.user_id}}");
+          });
+        </script>
+      </div>
+      {% endfor %}
+    <br>
+    <a href="{% url 'review:tone_review' %}">
+      <button class="btn btn-primary">Next</button>
+    </a>
 
     {% endblock %}

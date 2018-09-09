@@ -31,7 +31,7 @@ class RegistrationForm(UserCreationForm):
 
         return user
 
-class AddTeamForm(forms.ModelForm):
+class ChangeTeamForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
