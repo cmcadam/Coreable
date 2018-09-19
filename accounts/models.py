@@ -18,3 +18,5 @@ class UserProfile(models.Model):
 #         user_profile = UserProfile.objects.create(user=kwargs['instance'])
 #
 # post_save.connect(create_profile, sender=User)
+
+#HELLO
