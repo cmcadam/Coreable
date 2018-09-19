@@ -23,6 +23,32 @@ class FeedbackForm(forms.ModelForm):
 
     class Meta:
         model = Feedback
+        widgets = {
+            'question1': forms.Textarea(
+                attrs={'placeholder': 'How did you feel completing the questions?'}
+            ),
+            'question2': forms.Textarea(
+                attrs={'placeholder': 'Did you enjoy the experience, what could of been done better?'}
+            ),
+            'question3': forms.Textarea(
+                attrs={'placeholder': 'Did you feel nervous or excited about the appraisal process?'}
+            ),
+            'question4': forms.Textarea(
+                attrs={'placeholder': 'Did the bold words help the experience?'}
+            ),
+            'question5': forms.Textarea(
+                attrs={'placeholder': 'Were there particular bands that you liked more than others?'}
+            ),
+            'question6': forms.Textarea(
+                attrs={'placeholder': 'Did you have problems or disagree with any wording?'}
+            ),
+            'question7': forms.Textarea(
+                attrs={'placeholder': 'How long did it take you?'}
+            ),
+            'question8': forms.Textarea(
+                attrs={'placeholder': 'Is there anything we missed?'}
+            ),
+        }
         exclude = (
             'user',
         )
