@@ -25,6 +25,7 @@ oauth==1.0.1
 olefile==0.45.1
 pexpect==4.2.1
 Pillow==5.1.0
+<<<<<<< HEAD
 protobuf==3.0.0
 psycopg2==2.7.5
 psycopg2-binary==2.7.5
@@ -57,3 +58,5 @@ virtualenv==16.0.0
 wadllib==1.3.2
 xkit==0.0.0
 zope.interface==4.3.2
+=======
+>>>>>>> 4ab11327a74dade61beedbfc13211b1ab73da7d7
