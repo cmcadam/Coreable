@@ -25,7 +25,7 @@
         <p>Seeks to continuously and consistently create a positive environment. Acts as a role model for the team through prompting being supportive and encouraging and showing genuine concern for others.</p>
       </div>
     </div>
-    
+
       {% for user in team_members %}
       <div>
         <form method="post" id="review_form_{{user.user_id}}">
@@ -45,4 +45,10 @@
     <a href="{% url 'review:relationships_review' %}">
       <button class="btn btn-primary">Next</button>
     </a>
+    <br>
+    <br>
+    <div>
+      <h5>Progress 1/11</h5>
+    </div>
+
     {% endblock %}
