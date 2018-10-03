@@ -9,6 +9,7 @@ def positivity_review(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
+            # print(request.POST)
             reviewee_id = request.POST.get('pk')
             trait_score = request.POST.get('trait_score')
             reviewee = User.objects.get(pk=reviewee_id)
@@ -22,8 +23,16 @@ def positivity_review(request):
     else:
         form = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
-        return render(request, 'review/positivity.html', args)
+        # args = {'form': form, 'team_members': users}
+        args = {'team_members': users}
+        for x in range(len(users)):
+            name = 'form' + str(x + 1)
+            args[name] = form
+
+        # print(args)
+
+        # return render(request, 'review/positivity.html', args)
+        return render(request, 'review/test.html', args)
 
 def relationships_review(request):
     if request.method == 'POST':

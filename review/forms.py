@@ -9,7 +9,7 @@ class ReviewForm(forms.Form):
     pk = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'type': 'hidden',
+                 # 'type': 'hidden',
             }
         ),
         label=''
