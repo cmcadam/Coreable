@@ -27,6 +27,7 @@ class Review(models.Model):
     reviewee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviewee_id')
     trait = models.CharField(max_length=20)
     trait_score = models.IntegerField()
+    # team_id = models.ForeignKey()
 
 class Feedback(models.Model):
     question1 = models.TextField()

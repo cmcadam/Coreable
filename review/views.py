@@ -9,7 +9,7 @@ def positivity_review(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            # print(request.POST)
+            print(request.POST)
             reviewee_id = request.POST.get('pk')
             trait_score = request.POST.get('trait_score')
             reviewee = User.objects.get(pk=reviewee_id)
@@ -21,13 +21,16 @@ def positivity_review(request):
             )
             return redirect('/review/positivity')
     else:
-        form = ReviewForm()
+        form1 = ReviewForm()
+        form2 = ReviewForm()
         users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
         # args = {'form': form, 'team_members': users}
-        args = {'team_members': users}
-        for x in range(len(users)):
-            name = 'form' + str(x + 1)
-            args[name] = form
+        args = {'team_members': users, 'form1': form1, 'form2': form2}
+
+
+        # for x in range(len(users)):
+        #     name = 'form' + str(x + 1)
+        #     args[name] = ReviewForm(prefix=name)
 
         # print(args)
 

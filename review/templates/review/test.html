@@ -25,30 +25,37 @@
       </div>
     </div>
 
+    <script type="text/javascript">
+      function submitForms(){
+        console.log("IM WORKING");
+        document.getElementById("review_form_1").submit();
+        document.getElementById("review_form_27").submit();
+      };
+    </script>
+
       <div>
 
-        <form method="post" id="review_form">
-          {% for user in team_members %}
+        {% for user in team_members %}
+        <form method="post" id="review_form_{{ user.user_id }}">
             <p>Reviewing: {{ user.first_name }}  {{ user.last_name }}</p>
             {% csrf_token %}
-            <!-- {{ forloop.counter }} -->
-            {{ form|add:forloop.counter }}
-          {% endfor %}
-            <button class="btn btn-outline-primary" type="submit">Save</button>
+            {{ form1.as_p }}
         </form>
+        {% endfor %}
+        <!-- <a href="{% url 'review:relationships_review' %}"> -->
+          <button class="btn btn-primary" onclick="submitForms()">Save</button>
+        <!-- </a> -->
+
         {% for user in team_members %}
         <script type="text/javascript">
           $(document).ready(function(){
-            $("#review_form").children().children("#id_pk").val("{{user.user_id}}");
+            $("#review_form_{{ user.user_id }}").children().children("#id_pk").val("{{user.user_id}}");
           });
         </script>
         {% endfor %}
       </div>
 
     <br>
-    <a href="{% url 'review:relationships_review' %}">
-      <button class="btn btn-primary">Next</button>
-    </a>
     <br>
     <br>
     <div>
