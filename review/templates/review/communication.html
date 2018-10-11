@@ -25,32 +25,25 @@
         <p>Contributes to disccusions and work by offering insights and asking meaninful questions to extend understanding, Does not hesitate to complete or help with others works and picks up others slack if team not contributing equally.</p>
       </div>
     </div>
-      {% for user in team_members %}
-      <div>
-        <form method="post" id="review_form_{{user.user_id}}">
-            <p>Reviewing: {{ user.first_name }}  {{ user.last_name }}</p>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-outline-primary" type="submit">Save</button>
-        </form>
-        <script type="text/javascript">
-          $(document).ready(function(){
-            $("#review_form_{{user.user_id }}").children().children("#id_pk").val("{{user.user_id}}");
-          });
-        </script>
-      </div>
+    
+    <form method ="post" id="review_form">
+      {% csrf_token %}
+      {{ formset.management_form }}
+      {% for user,form in userforms %}
+        <p>Reviewing: {{user.first_name}} {{user.last_name}}</p>
+        <p>{{form.as_p}}</p>
       {% endfor %}
-    <br>
+      <button class="btn btn-primary" type="submit">Next</button>
+    </form>
 
-    <!-- <script type="text/javascript">
-      $(submitforms = function(){
+    {% for user in team_members %}
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $("#review_form").children().children("#id_form-{{forloop.counter0}}-pk").val("{{user.user_id}}");
+        });
+      </script>
+    {% endfor %}
 
-      });
-    </script> -->
-
-    <a href="{% url 'review:listening_review' %}">
-      <button class="btn btn-primary">Next</button>
-    </a>
     <br>
     <br>
     <div>

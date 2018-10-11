@@ -4,237 +4,271 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from accounts.models import UserProfile
 from review.models import Review, Feedback
+from django.forms import formset_factory
+from django import forms
 
 def positivity_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            print(request.POST)
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'positivity',
-                 trait_score = trait_score,
-            )
-            return redirect('/review/positivity')
-    else:
-        form1 = ReviewForm()
-        form2 = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        # args = {'form': form, 'team_members': users}
-        args = {'team_members': users, 'form1': form1, 'form2': form2}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'positivity',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
 
-
-        # for x in range(len(users)):
-        #     name = 'form' + str(x + 1)
-        #     args[name] = ReviewForm(prefix=name)
-
-        # print(args)
-
-        # return render(request, 'review/positivity.html', args)
-        return render(request, 'review/test.html', args)
-
-def relationships_review(request):
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'relationships',
-                 trait_score = trait_score,
-            )
             return redirect('/review/relationships')
     else:
-        form = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/positivity.html', args)
+
+def relationships_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'relationships',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/contribution')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/relationships.html', args)
 
 def contribution_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'contribution',
-                 trait_score = trait_score,
-            )
-            return redirect('/review/contribution')
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'contribution',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/diplomacy')
     else:
-        form = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/contribution.html', args)
 
 def diplomacy_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'diplomacy',
-                 trait_score = trait_score,
-            )
-            return redirect('/review/diplomacy')
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'diplomacy',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/openness')
     else:
-        form = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/diplomacy.html', args)
 
 def openness_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'openness',
-                 trait_score = trait_score,
-            )
-            return redirect('/review/openness')
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'openness',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/drive')
     else:
-        form = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/openness.html', args)
 
 def drive_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'drive',
-                 trait_score = trait_score,
-            )
-            return redirect('/review/drive')
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'drive',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/tone')
     else:
-        form = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/drive.html', args)
 
 def tone_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'tone',
-                 trait_score = trait_score,
-            )
-            return redirect('/review/tone')
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'tone',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/communication')
     else:
-        form = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/tone.html', args)
 
 def communication_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'communication',
-                 trait_score = trait_score,
-            )
-            return redirect('/review/communication')
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'communication',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/listening')
     else:
-        form = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/communication.html', args)
 
 def listening_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'listening',
-                 trait_score = trait_score,
-            )
-            return redirect('/review/listening')
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'listening',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/idea-sharing')
     else:
-        form = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/listening.html', args)
 
 def idea_sharing_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'idea sharing',
-                 trait_score = trait_score,
-            )
-            return redirect('/review/idea-sharing')
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'idea sharing',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/delivery')
     else:
-        form = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/idea_sharing.html', args)
 
 def delivery_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            reviewee_id = request.POST.get('pk')
-            trait_score = request.POST.get('trait_score')
-            reviewee = User.objects.get(pk=reviewee_id)
-            Review.objects.create(
-                 reviewer = request.user,
-                 reviewee = reviewee,
-                 trait = 'delivery',
-                 trait_score = trait_score,
-            )
-            return redirect('/review/delivery')
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'delivery',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/complete')
     else:
-        form = ReviewForm()
-        users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-        args = {'form': form, 'team_members': users}
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/delivery.html', args)
 
 def review_complete(request):

@@ -9,13 +9,18 @@ class ReviewForm(forms.Form):
     pk = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                # 'type': 'hidden',
+                'type': 'hidden',
             }
         ),
         label=''
     )
     trait_score = forms.IntegerField(
-        widget=RangeInput(attrs={'value': '0'}),
+        widget=RangeInput(
+            attrs={
+            'class': 'sliders',
+            'value': '0'
+            }
+        ),
         label='',
     )
 
