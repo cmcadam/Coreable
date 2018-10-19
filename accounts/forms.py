@@ -6,7 +6,7 @@ from accounts.models import UserProfile
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    review_team = forms.ModelChoiceField(queryset=Team.objects.all())
+    # review_team = forms.ModelChoiceField(queryset=Team.objects.all())
 
     class Meta:
         model = User
@@ -17,7 +17,6 @@ class RegistrationForm(UserCreationForm):
             'email',
             'password1',
             'password2',
-            'review_team',
         )
 
     def save(self, commit=True):
@@ -38,3 +37,38 @@ class ChangeTeamForm(forms.ModelForm):
         fields  = (
             'review_team',
             )
+
+class CreateTeamForm(forms.ModelForm):
+
+    class Meta:
+        model = Team
+        fields = (
+            'name',
+        )
+
+    def save(self, commit=True):
+        team = super(CreateTeamForm, self).save(commit=False)
+        team.name = self.cleaned_data['name']
+
+        if commit:
+            team.save()
+
+        return team
+
+class SelectTeamForm(forms.ModelForm):
+    review_team = forms.ModelChoiceField(queryset=Team.objects.all())
+
+    class Meta:
+        model = UserProfile
+        fields = (
+            'review_team',
+        )
+
+    def save(self, commit=True):
+        user = super(SelectTeamForm, self).save(commit=False)
+        user.review_team = self.cleaned_data['review_team']
+
+        if commit:
+            user.save()
+
+        return user

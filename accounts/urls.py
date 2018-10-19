@@ -38,4 +38,5 @@ urlpatterns = [
         name='password_reset_complete'),
 
     url(r'^results/$', views.results, name='results'),
+    url(r'^team/$', views.team, name='team'),
 ]

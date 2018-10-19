@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm,  Passwor
 from accounts.forms import (
     RegistrationForm,
     ChangeTeamForm,
+    CreateTeamForm,
+    SelectTeamForm,
 )
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
@@ -20,7 +22,7 @@ def register(request):
             user = form.save()
             UserProfile.objects.create(
                 user=user,
-                review_team=form.cleaned_data['review_team'],
+                # review_team=form.cleaned_data['review_team'],
                 first_name=form.cleaned_data['first_name'],
                 last_name=form.cleaned_data['last_name'],
             )
@@ -73,3 +75,20 @@ def change_password(request):
 
 def results(request):
     return render(request, 'accounts/results.html')
+
+def team(request):
+
+    if request.method == 'POST':
+        form1 = CreateTeamForm(request.POST)
+        form2 = SelectTeamForm(request.POST)
+        if form1.is_valid() and form2.is_valid():
+            form1.save()
+            form2.save()
+        return redirect('/account/team')
+
+    else:
+        user = UserProfile.objects.get(user=request.user)
+        form1 = CreateTeamForm()
+        form2 = SelectTeamForm()
+        args = {'form1': form1, 'form2': form2,'user': user}
+        return render(request, 'accounts/team.html', args)
