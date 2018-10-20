@@ -77,18 +77,17 @@ def results(request):
     return render(request, 'accounts/results.html')
 
 def team(request):
-
     if request.method == 'POST':
         form1 = CreateTeamForm(request.POST)
         form2 = SelectTeamForm(request.POST)
         if form1.is_valid() and form2.is_valid():
             form1.save()
-            form2.save()
+            username = UserProfile.objects.filter(user=request.user).update(review_team=request.POST.get('name'))
         return redirect('/account/team')
 
     else:
-        user = UserProfile.objects.get(user=request.user)
+        team_member = UserProfile.objects.get(user=request.user)
         form1 = CreateTeamForm()
         form2 = SelectTeamForm()
-        args = {'form1': form1, 'form2': form2,'user': user}
+        args = {'form1': form1, 'form2': form2, 'team_member': team_member}
         return render(request, 'accounts/team.html', args)

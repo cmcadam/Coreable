@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 
-{% block head %}
-    <title>Team</title>
-{% endblock %}
+  {% block head %}
+      <title>My Teams</title>
+  {% endblock %}
 
-{% block content %}
-    <h1>Team</h1>
-    {% if user.review_team == None %}
-    <h2>Create a new team</h2>
-      <form method="post">
-          {% csrf_token %}
-          {{ form1.as_p }}
-          <button type="submit">Submit</button>
-      </form>
+  {% block content %}
+      <h1>My Teams</h1>
+      {% if team_member.review_team == None %}
+      <h2>Create a new team</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form1.as_p }}
+            <button type="submit">Submit</button>
+        </form>
 
-    <h2>Join an existing team</h2>
-      <form method="post">
-          {% csrf_token %}
-          {{ form2.as_p }}
-          <button type="submit">Submit</button>
-      </form>
-    {% else %}
-      <p>Pingers</p>
-    {% endif %}
+      <h2>Join an existing team</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form2.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+      {% else %}
+        <h2>You are in team: {{team_member.review_team}}</h2>
+      {% endif %}
 
-{% endblock %}
+  {% endblock %}

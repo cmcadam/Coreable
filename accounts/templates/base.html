@@ -26,33 +26,28 @@
          <div class="collapse navbar-collapse" id="navbarNav">
            {% if user.is_authenticated %}
            <ul class="navbar-nav">
-             <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" style="color: black;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Account
-               </a>
-               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                 <a class="dropdown-item" href="{% url 'accounts:view_profile' %}">View Profile</a>
-                 <a class="dropdown-item" href="{% url 'accounts:change_team' %}">Change Team</a>
-                 <a class="dropdown-item" href="{% url 'accounts:change_password' %}">Change Password</a>
-               </div>
-             </li>
              <li class="nav-item active">
-               <a class="nav-link" href="{% url 'accounts:team' %}">My Team</a>
-             </li>
-             <li class="nav-item active">
-               <a class="nav-link" href="{% url 'review:positivity_review' %}">Reviews</a>
+               <a class="nav-link" href="{% url 'review:positivity_review' %}">Complete A Review</a>
              </li>
              <li class="nav-item active">
                <a class="nav-link" href="{% url 'accounts:results' %}">My Results</a>
              </li>
            </ul>
            <ul class="navbar-nav ml-auto">
-             <li class="nav-item active">
-               <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+             <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" style="color: black;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Profile
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                 <a class="dropdown-item" href="{% url 'accounts:view_profile' %}">View Profile</a>
+                 <a class="dropdown-item" href="{% url 'accounts:team' %}">Teams Page</a>
+                 <a class="dropdown-item" href="{% url 'accounts:change_password' %}">Change Password</a>
+                 <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
+               </div>
              </li>
            </ul>
            {% else %}
-           <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto">
              <li class="nav-item active">
                <a class="nav-link" href="{% url 'accounts:login' %}">Login<span class="sr-only">(current)</span></a>
              </li>
@@ -62,7 +57,7 @@
                <li class="nav-item active">
                    <a class="nav-link" href="{% url 'accounts:reset_password' %}">Reset Password</a>
                </li>
-           </ul>
+             </ul>
            {% endif %}
          </div>
        </nav>

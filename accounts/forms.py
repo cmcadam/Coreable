@@ -56,19 +56,10 @@ class CreateTeamForm(forms.ModelForm):
         return team
 
 class SelectTeamForm(forms.ModelForm):
-    review_team = forms.ModelChoiceField(queryset=Team.objects.all())
+    name = forms.ModelChoiceField(queryset=Team.objects.all())
 
     class Meta:
         model = UserProfile
         fields = (
-            'review_team',
+            'name',
         )
-
-    def save(self, commit=True):
-        user = super(SelectTeamForm, self).save(commit=False)
-        user.review_team = self.cleaned_data['review_team']
-
-        if commit:
-            user.save()
-
-        return user
