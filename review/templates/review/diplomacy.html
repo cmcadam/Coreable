@@ -5,47 +5,51 @@
     {% endblock %}
 
     {% block content %}
-    <br>
-    <h1>Review</h1>
+    <div class="page-count">
+      <p class="count">4/12</p>
+      <p class="form-back">Back</p>
+    </div>
+    <div class="vert-line-1"></div>
+    <div class="vert-line-2"></div>
+    <div class="vert-line-3"></div>
+    <div class="vert-line-4"></div>
+
+    <p class="trait">Flexiability</p>
+    <p class="trait-tag">'Be adaptable and receptive to new ideas; respond and adjust easily to changing work demands and circumstances; not bound by old ways of doing things'</p>
+
     <div class="row">
-      <div class="col-md-3">
-        <p>Fails to be adaptable and receptive to new ideas and ones that contradict their own. Doesn't respond and adjust easily to changing work demands.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Only under prompting is this person adaptable and receptive to new ideas, responds and adjusts easily to changing work demands.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Is adaptable and receptive to all new ideas and responds, adjusts easily to changing work demands.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Actively prompts others to be open to new ideas and adjust to changing work demands.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Actively teaches practices to help manage new ideas helps to change work demands.</p>
-      </div>
+      <ul>
+        <li class="col-md-2">Fails</li>
+        <li class="col-md-3">Under Prompting</li>
+        <li class="col-md-4">Always</li>
+        <li class="col-md-5">Prompts Others</li>
+        <li class="col-md-6">Teaches</li>
+        </ul>
     </div>
 
-    <form method ="post" id="review_form">
-      {% csrf_token %}
-      {{ formset.management_form }}
-      {% for user,form in userforms %}
-        <p>Reviewing: {{user.first_name}} {{user.last_name}}</p>
-        <p>{{form.as_p}}</p>
-      {% endfor %}
-      <button class="btn btn-primary" type="submit">Next</button>
-    </form>
+  <form method ="post" id="review_form">
+  {% csrf_token %}
+  {{ formset.management_form }}
+  {% for user,form in userforms %}
+    <p class="naming">{{user.first_name}} {{user.last_name}}</p>
+    <p>{{form.as_p}}</p>
+  {% endfor %}
+  <button class="btn btn-primary" type="submit">Next</button>
+  </form>
 
-    {% for user in team_members %}
-      <script type="text/javascript">
-        $(document).ready(function(){
-          $("#review_form").children().children("#id_form-{{forloop.counter0}}-pk").val("{{user.user_id}}");
-        });
-      </script>
-    {% endfor %}
-    
-    <br>
-    <br>
-    <div>
-      <h5>Progress 4/11</h5>
-    </div>
-    {% endblock %}
+  {% for user in team_members %}
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#review_form").children().children("#id_form-{{forloop.counter0}}-pk").val("{{user.user_id}}");
+    });
+  </script>
+  {% endfor %}
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  {% endblock %}

@@ -5,31 +5,33 @@
     {% endblock %}
 
     {% block content %}
-    <br>
-    <h1>Review</h1>
-    <div class="row">
-      <div class="col-md-2">
-        <p>Resistant to prompting to create trust and loyalty within the team fails to treat all individuals fairly, keep their word, meet  deadlines and fulfil expectations.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Only under prompting do they show a value for trust and loyalty, treats all individuals fairly, keeps their word, meets deadlines and fulfil expectations.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Always shows to value trust and loyalty within the team, treats all individuals fairly, keeps their word, meets deadlines and fulfil expectations..</p>
-      </div>
-      <div class="col-md-2">
-        <p>Actively prompts others to manage value trust and loyalty within the team treats all individuals fairly, keeps their word, meets deadlines and fulfil expectations..</p>
-      </div>
-      <div class="col-md-3">
-        <p>Actively teaches practices to help others to build trust and loyalty within the team.</p>
-      </div>
-    </div>
+        <div class="page-count">
+          <p class="count">2/12</p>
+          <p class="form-back">Back</p>
+        </div>
+        <div class="vert-line-1"></div>
+        <div class="vert-line-2"></div>
+        <div class="vert-line-3"></div>
+        <div class="vert-line-4"></div>
+
+        <p class="trait">Moral Trust</p>
+        <p class="trait-tag">‘Value trust and loyalty within the team, share information, treat all individuals fairly, act with integrity, keep your word, meet deadlines and fulfill expectations'</p>
+
+        <div class="row">
+          <ul>
+            <li class="col-md-2">Fails</li>
+            <li class="col-md-3">Under Prompting</li>
+            <li class="col-md-4">Always</li>
+            <li class="col-md-5">Prompts Others</li>
+            <li class="col-md-6">Teaches</li>
+            </ul>
+        </div>
 
     <form method ="post" id="review_form">
       {% csrf_token %}
       {{ formset.management_form }}
       {% for user,form in userforms %}
-        <p>Reviewing: {{user.first_name}} {{user.last_name}}</p>
+        <p class="naming">{{user.first_name}} {{user.last_name}}</p>
         <p>{{form.as_p}}</p>
       {% endfor %}
       <button class="btn btn-primary" type="submit">Next</button>
@@ -42,10 +44,12 @@
         });
       </script>
     {% endfor %}
-    
     <br>
     <br>
-    <div>
-      <h5>Progress 2/11</h5>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     {% endblock %}

@@ -5,31 +5,33 @@
     {% endblock %}
 
     {% block content %}
-    <br>
-    <h1>Review</h1>
+    <div class="page-count">
+      <p class="count">1/12</p>
+    </div>
+
+    <div class="vert-line-1"></div>
+    <div class="vert-line-2"></div>
+    <div class="vert-line-3"></div>
+    <div class="vert-line-4"></div>
+
+    <p class="trait">Emotional Intelligence</p>
+    <p class="trait-tag">'Actively creates a pleasant human environment for work, show empathy, accountability, humility, friendliness and unselfishness'</p>
+
     <div class="row">
-      <div class="col-md-2">
-        <p>Resistant under prompting to build a positive working environment by not showing empathy, humility, unselfishness’ or building rapport.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Only under prompting does this person show empathy, humility, unselfishness or building rapport.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Always shows empathy, humility, unselfishness and, always builds rapport within the team.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Actively prompts others to be aware of building rapport, empathy, humility and unselfishness.</p>
-      </div>
-      <div class="col-md-4">
-        <p>Activity teaches practices to help develop their humility, empathy, unselfishness and building their rapport.</p>
-      </div>
+      <ul>
+        <li class="col-md-2">Fails</li>
+        <li class="col-md-3">Under Prompting</li>
+        <li class="col-md-4">Always</li>
+        <li class="col-md-5">Prompts Others</li>
+        <li class="col-md-6">Teaches</li>
+        </ul>
     </div>
 
     <form method ="post" id="review_form">
       {% csrf_token %}
       {{ formset.management_form }}
       {% for user,form in userforms %}
-        <p>Reviewing: {{user.first_name}} {{user.last_name}}</p>
+        <p class="naming">{{user.first_name}} {{user.last_name}}</p>
         <p>{{form.as_p}}</p>
       {% endfor %}
       <button class="btn btn-primary" type="submit">Next</button>
@@ -42,11 +44,12 @@
         });
       </script>
     {% endfor %}
-
     <br>
     <br>
-    <div>
-      <h5>Progress 1/11</h5>
-    </div>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     {% endblock %}

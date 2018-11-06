@@ -1,4 +1,5 @@
 /projectenv
+/venv
 /python3
 *.sh
 /coreable/db.sqlite3

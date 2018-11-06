@@ -16,7 +16,6 @@
 
    </head>
    <body>
-     <br>
        <div class="container">
            <nav class="navbar navbar-expand-lg navbar-light bg-light">
          <a class="navbar-brand" href="{% url 'home:home_page' %}">Coreable</a>
@@ -27,20 +26,18 @@
            {% if user.is_authenticated %}
            <ul class="navbar-nav">
              <li class="nav-item active">
-               <a class="nav-link" href="{% url 'review:positivity_review' %}">Complete A Review</a>
+               <a class="nav-link" href="{% url 'review:positivity_review' %}">Review Team</a>
              </li>
              <li class="nav-item active">
-               <a class="nav-link" href="{% url 'accounts:results' %}">My Results</a>
+               <a class="nav-link" href="{% url 'accounts:results' %}">View Profile</a>
              </li>
            </ul>
            <ul class="navbar-nav ml-auto">
              <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" style="color: black;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Profile
+                 User Name
                </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                 <a class="dropdown-item" href="{% url 'accounts:view_profile' %}">View Profile</a>
-                 <a class="dropdown-item" href="{% url 'accounts:team' %}">Teams Page</a>
                  <a class="dropdown-item" href="{% url 'accounts:change_password' %}">Change Password</a>
                  <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
                </div>

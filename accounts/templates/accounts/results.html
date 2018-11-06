@@ -76,18 +76,43 @@
     {% endblock %}
 
     {% block content %}
-    <br>
-    <h1>Results</h1>
-    <h3>Results are coming soon and will look something like this!</h3>
-    <div class="row">
-      <div class="col-md-4">
-        <canvas id="radar_chart"></canvas>
-      </div>
-      <div class="col-md-4">
-        <canvas id="radar_chart2"></canvas>
-      </div>
-      <div class="col-md-4">
-        <canvas id="radar_chart3"></canvas>
+
+    <div id="profile-right">
+      <p class="highlighted">Overview</p>
+      <div id="profile-line"></div>
+      <div id="profile-line-highlighted"></div>
+      <div class="collaboration"></div>
+      <div class="communication"></div>
+      <div class="coll-com">
+        <div class="coll">
+          <p class="coll-head">Collaboration</p>
+          <p class="profile-skills">Skills</p>
+          <p class="profile-skills-list">1. Pariticipation<br>2. Engagement<br>3. Drive</p>
+        </div>
+        <div class="com">
+          <p class="com-head">Communication</p>
+          <p class="profile-skills">Skills</p>
+          <p class="profile-skills-list">1. Presentation<br>2. Story Telling<br>3. Active Listening</p>
+        </div>
+
       </div>
     </div>
+
+
+
+    <div id="profile">
+      <div id="profile-image">
+      </div>
+      <h2 class="profile-name">User Name</h2>
+      <p class="profile-team">Coreable</p>
+
+      <p class="profile-skills">Top Skills</p>
+      <p class="profile-skills-list">Skill 1<br>Skills 2<br>Skills 3</p>
+
+
+      <p class="profile-download">Download Overview</p>
+      <p class="profile-joined">Joined Date</p>
+
+      </div>
+
     {% endblock %}
