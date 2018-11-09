@@ -5,8 +5,19 @@
     {% endblock %}
 
     {% block content %}
-    <div>
-      <a href="{% url 'review:positivity_review' %}>Collaboration</a>
-      <a href=""
+    <div class="review_options_container">
+        <div class="review_options_teamwork">
+          <div class="review_options_teamwork_container">
+            <a href="{% url 'review:positivity_review' %}" class="review_options_head">Teamwork</a>
+            <a class="review_options_body">Collaboration and Communication</a>
+          </div>
+        </div>
+
+        <div class="review_options_problemsolving">
+          <div class="review_options_teamwork_container">
+            <a href="{% url 'review:positivity_review' %}" class="review_options_head">Problem Solving</a>
+            <a class="review_options_body">Critical and Creative Thinking</a>
+          </div>
+        </div>
     </div>
     {% endblock %}

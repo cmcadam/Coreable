@@ -1,3 +1,12 @@
+/** Styleguide **/
+/*
+:root {
+  --black: #262626;
+  --cerulean: #006fcf;
+  --brownish-grey: #6c6c6c;
+}
+*/
+
 /** Global **/
 
 nav {
@@ -705,4 +714,60 @@ li {
   margin-left: 330px;
   margin-top: 32px;
   position: relative;
+}
+
+/** Review Options **/
+.review_options_head {
+  width: 163px;
+  height: 34px;
+  font-family: Graphik;
+  font-size: 34px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #006fcf;
+}
+
+.review_options_teamwork_container{
+  margin-top: 202px;
+  margin-left: 50px;
+}
+
+.review_options_body {
+  width: 220px;
+  height: 69px;
+  font-family: Graphik;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.42;
+  letter-spacing: normal;
+  color: #6c6c6c;
+  float: left;
+  margin-top: 16px;
+}
+
+.review_options_container {
+  margin-left: 329px;
+  margin-top: 110px;
+}
+
+.review_options_teamwork {
+  width: 381px;
+  height: 381px;
+  border-radius: 4px;
+  float: left;
+  border: solid 1px #e4e4e4;
+}
+
+.review_options_problemsolving {
+  width: 381px;
+  height: 381px;
+  border-radius: 4px;
+  border: solid 1px #e4e4e4;
+  float: left;
+  margin-left: 20px;
 }
