@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^idea-sharing/', views.idea_sharing_review, name='idea_sharing_review'),
     url(r'^delivery/', views.delivery_review, name='delivery_review'),
     url(r'^complete/', views.review_complete, name='review_complete'),
+    url(r'^review-options/', views.review_options, name='review_options'),
 ]

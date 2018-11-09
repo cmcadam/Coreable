@@ -281,3 +281,6 @@ def review_complete(request):
         form = FeedbackForm()
         args = {'form': form}
         return render(request, 'review/feedback.html', args)
+
+def review_options(request):
+    return render(request, 'review/review_options.html')
