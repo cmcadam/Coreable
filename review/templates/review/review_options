@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+      <title>Review Options</title>
+    {% endblock %}
+
+    {% block content %}
+    <div>
+      <a href="{% url 'review:positivity_review' %}>Collaboration</a>
+      <a href=""
+    </div>
+    {% endblock %}

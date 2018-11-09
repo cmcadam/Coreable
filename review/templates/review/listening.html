@@ -5,32 +5,33 @@
     {% endblock %}
 
     {% block content %}
-    <br>
-    <h1>Review</h1>
-    <h2>Do they listen to others during conversation?</h2>
-    <div class="row">
-      <div class="col-md-2">
-        <p>Person does not listen, interupts when others speak.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Person does not listen consistently, sometimes having to be prompted.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Person does listen consistently.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Person listens consistently, is respectful of others point of view and ask clarifying questions if unsure.</p>
-      </div>
-      <div class="col-md-3">
-        <p>Person listens and tries to incoperate others ideas and build off ideas with appropriate body language.</p>
-      </div>
+    <div class="page-count">
+      <p class="count">9/12</p>
+      <a href="{% url 'review:communication_review' %}" class="form-back">Back</a>
     </div>
-    
+    <div class="vert-line-1"></div>
+    <div class="vert-line-2"></div>
+    <div class="vert-line-3"></div>
+    <div class="vert-line-4"></div>
+
+    <p class="trait">Non Verbal</p>
+    <p class="trait-tag">‘During conversation keeps engaged through their body language showing eye contact and not being distracted'</p>
+
+    <div class="row">
+      <ul>
+        <li class="col-md-2">Fails</li>
+        <li class="col-md-3">Under Prompting</li>
+        <li class="col-md-4">Always</li>
+        <li class="col-md-5">Prompts Others</li>
+        <li class="col-md-6">Teaches</li>
+        </ul>
+    </div>
+
     <form method ="post" id="review_form">
       {% csrf_token %}
       {{ formset.management_form }}
       {% for user,form in userforms %}
-        <p>Reviewing: {{user.first_name}} {{user.last_name}}</p>
+        <p class="naming">{{user.first_name}} {{user.last_name}}</p>
         <p>{{form.as_p}}</p>
       {% endfor %}
       <button class="btn btn-primary" type="submit">Next</button>
@@ -43,10 +44,12 @@
         });
       </script>
     {% endfor %}
-
     <br>
     <br>
-    <div>
-      <h5>Progress 9/11</h5>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     {% endblock %}

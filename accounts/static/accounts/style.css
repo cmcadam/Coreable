@@ -19,6 +19,19 @@ nav {
 
 .navbar-nav{
   margin-top: 15px;
+  margin-left: 30px;
+  font-family: Graphik;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #9b9b9b;
+}
+
+.navbar-nav{
+  margin-right: 24.5px;
 }
 
 .navbar-brand{
@@ -399,6 +412,37 @@ margin-top: 62px;
   margin-left: 140px;
 }
 
+/**Account Details**/
+.details-container {
+  margin-left: 570px;
+  width: 275px;
+  margin-top: 127px;
+}
+
+.details-head{
+  width: 251px;
+  height: 34px;
+  font-family: Graphik;
+  font-size: 34px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #818181;
+}
+
+.details-submit {
+  width: 262px;
+  height: 56px;
+  border-radius: 5px;
+  background-color: #006fcf;
+  color: #ffffff;
+  font-family: Graphik;
+  font-size: 20px;
+  font-weight: normal;
+}
+
 /**Trash**/
 
 h1 {
@@ -534,7 +578,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 p.trait {
-  width: 86px;
+  width: 200px;
   height: 16px;
   font-family: Graphik;
   font-size: 16px;

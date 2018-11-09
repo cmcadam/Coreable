@@ -5,32 +5,33 @@
     {% endblock %}
 
     {% block content %}
-    <br>
-    <h1>Review</h1>
-    <h2>Do they use appropoate tone of voice when communicating?</h2>
+    <div class="page-count">
+      <p class="count">7/12</p>
+      <a href="{% url 'review:drive_review' %}" class="form-back">Back</a>
+    </div>
+    <div class="vert-line-1"></div>
+    <div class="vert-line-2"></div>
+    <div class="vert-line-3"></div>
+    <div class="vert-line-4"></div>
+
+    <p class="trait">Clarity</p>
+    <p class="trait-tag">‘Gives clear instructions that increases productivity, easily explains complex ideas that prevents misunderstand'</p>
+
     <div class="row">
-      <div class="col-md-2">
-        <p>Is unable to adopt their tone to be appropraite for different situations.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Makes an attempt to use appropriate tones but is prone to lapses in judgement/control.</p>
-      </div>
-      <div class="col-md-2">
-        <p>This individual can create a positive mood but has lapses in judgement.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Is able to provide a positive tone and mood.</p>
-      </div>
-      <div class="col-md-3">
-        <p>Is a able to provide a positive mood and tone while creating a positive environment to help/influence others to adopt in sistutations.</p>
-      </div>
+      <ul>
+        <li class="col-md-2">Fails</li>
+        <li class="col-md-3">Under Prompting</li>
+        <li class="col-md-4">Always</li>
+        <li class="col-md-5">Prompts Others</li>
+        <li class="col-md-6">Teaches</li>
+        </ul>
     </div>
 
     <form method ="post" id="review_form">
       {% csrf_token %}
       {{ formset.management_form }}
       {% for user,form in userforms %}
-        <p>Reviewing: {{user.first_name}} {{user.last_name}}</p>
+        <p class="naming">{{user.first_name}} {{user.last_name}}</p>
         <p>{{form.as_p}}</p>
       {% endfor %}
       <button class="btn btn-primary" type="submit">Next</button>
@@ -43,10 +44,12 @@
         });
       </script>
     {% endfor %}
-    
     <br>
     <br>
-    <div>
-      <h5>Progress 7/11</h5>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     {% endblock %}

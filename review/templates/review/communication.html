@@ -5,32 +5,33 @@
     {% endblock %}
 
     {% block content %}
-    <br>
-    <h1>Review</h1>
-    <h2>Do they contribute with feedback and discussion?</h2>
-    <div class="row">
-      <div class="col-md-2">
-        <p>Disengaged when doing tasks, when prompted gives minimal effective contribution.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Contributes to discussions and work under prompting and external expectations.</p>
-      </div>
-      <div class="col-md-2">
-        <p>Regularly makes meaningful and clarifying contributions to work and discussion; sometimes offers ideas, asks questions.</p>
-      </div>
-      <div class="col-md-3">
-        <p>Contributes to work and discussion offering insightful ideas and asking clarifying and meaningful questions to extend understanding. Takes risks by initiating discussion and asserting opinions.</p>
-      </div>
-      <div class="col-md-3">
-        <p>Contributes to disccusions and work by offering insights and asking meaninful questions to extend understanding, Does not hesitate to complete or help with others works and picks up others slack if team not contributing equally.</p>
-      </div>
+    <div class="page-count">
+      <p class="count">8/12</p>
+      <a href="{% url 'review:tone_review' %}" class="form-back">Back</a>
     </div>
-    
+    <div class="vert-line-1"></div>
+    <div class="vert-line-2"></div>
+    <div class="vert-line-3"></div>
+    <div class="vert-line-4"></div>
+
+    <p class="trait">Culture</p>
+    <p class="trait-tag">‘Enables communication across all team members, delivers messages in a appropriate tone, culitates an environmnet to be open and share'</p>
+
+    <div class="row">
+      <ul>
+        <li class="col-md-2">Fails</li>
+        <li class="col-md-3">Under Prompting</li>
+        <li class="col-md-4">Always</li>
+        <li class="col-md-5">Prompts Others</li>
+        <li class="col-md-6">Teaches</li>
+        </ul>
+    </div>
+
     <form method ="post" id="review_form">
       {% csrf_token %}
       {{ formset.management_form }}
       {% for user,form in userforms %}
-        <p>Reviewing: {{user.first_name}} {{user.last_name}}</p>
+        <p class="naming">{{user.first_name}} {{user.last_name}}</p>
         <p>{{form.as_p}}</p>
       {% endfor %}
       <button class="btn btn-primary" type="submit">Next</button>
@@ -43,10 +44,12 @@
         });
       </script>
     {% endfor %}
-
     <br>
     <br>
-    <div>
-      <h5>Progress 8/11</h5>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     {% endblock %}
