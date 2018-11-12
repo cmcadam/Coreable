@@ -7,6 +7,10 @@ from review.models import Review, Feedback
 from django.forms import formset_factory
 from django import forms
 
+##################
+#TEAMWORK REVIEWS#
+##################
+
 def positivity_review(request):
     users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
     if request.method == 'POST':
@@ -284,3 +288,294 @@ def review_complete(request):
 
 def review_options(request):
     return render(request, 'review/review_options.html')
+
+#########################
+#PROBLEM SOLVING REVIEWS#
+#########################
+def observe_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'observe',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/analyse')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/observe2.html', args)
+
+def analyse_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'analyse',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/evaluate')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/analyse2.html', args)
+
+def evaluate_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'evaluate',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/question')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/evaluate2.html', args)
+
+def question_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'question',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/justify')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/question2.html', args)
+
+def justify_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'justify',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/contextualise')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/justify2.html', args)
+
+def contextualise_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'contextualise',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/innovative')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/contextualise2.html', args)
+
+def innovative_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'innovative',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/connectivity')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/innovative2.html', args)
+
+def connectivity_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'connectivity',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/problem-solving-openness')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/connectivity2.html', args)
+
+def problem_solving_openness_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'problem solving openness',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/question-making')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/openness2.html', args)
+
+def question_making_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'question making',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/complexity')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/question_making2.html', args)
+
+def complexity_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'complexity',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/knowledge')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/complexity2.html', args)
+
+def knowledge_review(request):
+    users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+    if request.method == 'POST':
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet(request.POST)
+        if formset.is_valid():
+            i = 0
+            while i < len(users):
+                Review.objects.create(
+                    reviewer = request.user,
+                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+                    trait = 'knowledge',
+                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+                )
+                i += 1
+
+            return redirect('/review/complete')
+    else:
+        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+        formset = ReviewFormSet()
+        UserForms = zip(users, formset)
+        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+        return render(request, 'review/knowledge2.html', args)
