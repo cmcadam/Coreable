@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+    {% block head %}
+    <title>Review</title>
+    {% endblock %}
+
+    {% block content %}
+    <div class="page-count">
+      <p class="count">4/12</p>
+      <a href="{% url 'review:review_options' %}" class="form-back">Back</a>
+    </div>
+
+    <div class="vert-line-1"></div>
+    <div class="vert-line-2"></div>
+    <div class="vert-line-3"></div>
+    <div class="vert-line-4"></div>
+
+    <p class="trait">Justify</p>
+    <p class="trait-tag">Uses multiple, credible rousces only, accurately credits sources and justies choices</p>
+
+    <div class="row">
+      <ul>
+        <li class="col-md-2">Fails</li>
+        <li class="col-md-3">Under Prompting</li>
+        <li class="col-md-4">Always</li>
+        <li class="col-md-5">Prompts Others</li>
+        <li class="col-md-6">Teaches</li>
+        </ul>
+    </div>
+
+    <form method ="post" id="review_form">
+      {% csrf_token %}
+      {{ formset.management_form }}
+      {% for user,form in userforms %}
+        <p class="naming">{{user.first_name}} {{user.last_name}}</p>
+        <p>{{form.as_p}}</p>
+      {% endfor %}
+      <button class="btn btn-primary" type="submit">Next</button>
+    </form>
+
+    {% for user in team_members %}
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $("#review_form").children().children("#id_form-{{forloop.counter0}}-pk").val("{{user.user_id}}");
+        });
+      </script>
+    {% endfor %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% endblock %}
