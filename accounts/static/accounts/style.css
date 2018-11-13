@@ -131,7 +131,24 @@ margin-top: 62px;
 
 .features-container {
   margin-left: 253px;
-  margin-top: 242px;
+  margin-top: 100px;
+  margin-right: 450px;
+}
+
+#features-sub-head {
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+#features-body {
+  font-family: Graphik;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.63;
+  letter-spacing: normal;
+  color: #4a4a4a;
 }
 
 .features-head{
