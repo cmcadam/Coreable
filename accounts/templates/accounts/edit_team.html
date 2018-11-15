@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>Edit Profile</title>
+    <title>Edit Team</title>
 {% endblock %}
 
 {% block content %}
-    <h1>Edit Profile</h1>
+    <h1>Edit Team</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 
 {% endblock %}

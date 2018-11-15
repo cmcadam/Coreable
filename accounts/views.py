@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm,  PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm,  PasswordChangeForm, AuthenticationForm
 from accounts.forms import (
     RegistrationForm,
     ChangeTeamForm,
@@ -12,7 +12,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from accounts.models import UserProfile
-
 
 # Register page view
 def register(request):
@@ -28,8 +27,9 @@ def register(request):
             )
             return redirect('/home')
     else:
-        form = RegistrationForm()
-        args = {'form': form}
+        register_form = RegistrationForm()
+        authentication_form = AuthenticationForm()
+        args = {'register_form': register_form, 'authentication_form': authentication_form}
         return render(request, 'accounts/reg_form.html', args)
 
 # Profile page view
@@ -46,15 +46,16 @@ def view_profile(request, pk=None):
 def change_team(request):
     if request.method == 'POST':
         form = ChangeTeamForm(request.POST, instance=request.user)
-
         if form.is_valid():
-            form.save()
+            UserProfile.objects.update(
+                review_team=form.cleaned_data['review_team'],
+            )
             return redirect('/account/profile')
 
     else:
         form = ChangeTeamForm(instance=request.user)
         args = {'form': form}
-        return render(request, 'accounts/edit_profile.html', args)
+        return render(request, 'accounts/edit_team.html', args)
 
 # Change password page view
 def change_password(request):

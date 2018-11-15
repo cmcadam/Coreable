@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 
-{% block head %}
-<title>Coreable</title>
-{% endblock %}
+  {% block head %}
+    <title>Coreable</title>
+  {% endblock %}
 
-{% block content %}
-<br>
-
-<div class="landing-container">
-  <h1 id="landing-head">Measure to Manage<h1>
-  <p id="landing-body">Build better teams through measurement and management</p>
-  <button type="button" class="landing-button">Get Started</button>
-</div>
-<div class="landing-image-container">
-</div>
-
-{% endblock %}
+  {% block content %}
+    <br>
+    <div class="landing-container">
+      <h1 id="landing-head">Measure to Manage<h1>
+      <p id="landing-body">Build better teams through measurement and management</p>
+      <a type="button" class="landing-button" href="{% url 'home:login_page' %}">Get Started</a>
+    </div>
+    <!-- <div class="landing-image-container">
+    </div> -->
+  {% endblock %}

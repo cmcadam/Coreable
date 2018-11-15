@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
-from coreable import views
+from home import views
 
 urlpatterns = [
-    url(r'^$', views.login_redirect, name='login_redirect'),
+    url(r'^$', views.landing_page, name='landing_page'),
     url(r'^admin/', admin.site.urls),
     url(r'^account/', include(('accounts.urls', 'accounts'), namespace='accounts')),
     url(r'^home/', include(('home.urls', 'home'), namespace='home')),

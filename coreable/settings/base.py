@@ -117,8 +117,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-LOGIN_REDIRECT_URL = '/home/'
-LOGIN_URL = '/account/login/'
+LOGIN_REDIRECT_URL = '/account/profile/'
+# LOGIN_URL = '/account/login/'
+LOGIN_URL = '/home/login/'
 
 LOGIN_EXEMPT_URLS = (
     r'^account/login/$',
@@ -128,4 +129,8 @@ LOGIN_EXEMPT_URLS = (
     r'^account/reset-password/complete/$',
     r'^account/reset-password/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
     r'^account/reset-password/done/$',
+    r'^$',
+    r'^home/login-or-signup/$',
+    r'^home/features/$',
+    r'^home/contact/$',
 )

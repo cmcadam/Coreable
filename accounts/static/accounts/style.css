@@ -582,6 +582,16 @@ input[type=range]:focus::-ms-fill-upper {
   width: 778px;
 }
 
+#id_form-5-trait_score {
+  margin-left: 331px;
+  width: 778px;
+}
+
+#id_form-6-trait_score {
+  margin-left: 331px;
+  width: 778px;
+}
+
 .btn-primary{
   width: 139px;
   height: 39px;

@@ -18,7 +18,7 @@
    <body>
        <div class="container">
            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <a class="navbar-brand" href="{% url 'home:home_page' %}">Coreable</a>
+         <a class="navbar-brand" href="/">Coreable</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
          </button>
@@ -46,10 +46,13 @@
            {% else %}
             <ul class="navbar-nav ml-auto">
              <li class="nav-item active">
-               <a class="nav-link" href="{% url 'accounts:login' %}">Login<span class="sr-only">(current)</span></a>
+               <a class="nav-link" href="{% url 'home:login_page' %}">Login or Sign Up<span class="sr-only">(current)</span></a>
              </li>
              <li class="nav-item active">
-                 <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
+                 <a class="nav-link" href="{% url 'home:features_page' %}">Features</a>
+             </li>
+             <li class="nav-item active">
+                 <a class="nav-link" href="{% url 'home:contact_page' %}">Contact</a>
              </li>
                <li class="nav-item active">
                    <a class="nav-link" href="{% url 'accounts:reset_password' %}">Reset Password</a>
