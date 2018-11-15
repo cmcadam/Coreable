@@ -103,14 +103,14 @@
     <div id="profile">
       <div id="profile-image">
       </div>
-      <h2 class="profile-name">User Name</h2>
+      <h2 class="profile-name">{{request.user.userprofile.first_name|title}} {{request.user.userprofile.last_name|title}}</h2>
       <p class="profile-team">Coreable</p>
 
       <p class="profile-skills">Top Skills</p>
       <p class="profile-skills-list">Skill 1<br>Skills 2<br>Skills 3</p>
 
 
-      <p class="profile-download">Download Overview</p>
+      <a href="#" class="profile-download">Download Overview</a>
       <p class="profile-joined">Joined Date</p>
 
       </div>
