@@ -5,17 +5,37 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Profile</h1>
-        <p>Username: {{ user }}</p>
-        <p>First Name: {{ user.first_name }}</p>
-        <p>Last Name: {{ user.last_name }}</p>
-        <p>Email: {{ user.email }}</p>
-        <p>Team: {{ user.userprofile.review_team }}</p>
-        <!--<p>Description: {{ user.userprofile.description }}</p>
-        <p>Phone: {{ user.userprofile.phone }}</p>
-        <p>City: {{ user.userprofile.city}}</p>
-        <p>Website: {{ user.userprofile.website }}</p> -->
-        {% if user.userprofile.image %}
-        <img src="{{ user.userprofile.image.url }}" width="240">
-        {% endif %}
+  <div id="profile-right">
+    <p class="highlighted">Overview</p>
+    <div id="profile-line"></div>
+    <div id="profile-line-highlighted"></div>
+    <div class="collaboration"></div>
+    <div class="communication"></div>
+    <div class="coll-com">
+      <div class="coll">
+        <p class="coll-head">Collaboration</p>
+        <p class="profile-skills">Skills</p>
+        <p class="profile-skills-list">1. Pariticipation<br>2. Engagement<br>3. Drive</p>
+      </div>
+      <div class="com">
+        <p class="com-head">Communication</p>
+        <p class="profile-skills">Skills</p>
+        <p class="profile-skills-list">1. Presentation<br>2. Story Telling<br>3. Active Listening</p>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div id="profile">
+    <div id="profile-image">
+    </div>
+      <h2 class="profile-name">{{request.user.userprofile.first_name|title}} {{request.user.userprofile.last_name|title}}</h2>
+        <p class="profile-team">Coreable</p>
+        <p class="profile-skills">Top Skills</p>
+        <p class="profile-skills-list">Skill 1<br>Skills 2<br>Skills 3</p>
+        <a href="#" class="profile-download">Download Overview</a>
+        <p class="profile-joined">Joined Date</p>
+  </div>
 {% endblock %}

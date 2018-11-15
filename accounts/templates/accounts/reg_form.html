@@ -7,9 +7,17 @@
     {% block content %}
     <h1>Register</h1>
     <p>You can register here!</p>
+      <div class="form-group">
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {% for field in form %}
+              <label>{{ field.label_tag }}</label>
+              <ul>
+                <li>{{ field }}</li>
+              </ul>
+
+            {% endfor %}
             <button class="btn btn-primary" type="submit" >Register</button>
         </form>
+      </div>
     {% endblock %}

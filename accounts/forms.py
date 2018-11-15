@@ -18,6 +18,14 @@ class RegistrationForm(UserCreationForm):
             'password1',
             'password2',
         )
+        widgets = {
+            'username': forms.TextInput(attrs={'class':'input-field'}),
+            'first_name': forms.TextInput(attrs={'class':'input-field'}),
+            'last_name': forms.TextInput(attrs={'class':'input-field'}),
+            'email': forms.TextInput(attrs={'class':'input-field'}),
+            'password1': forms.TextInput(attrs={'class':'input-field'}),
+            'password2': forms.TextInput(attrs={'class':'input-field'}),
+        }
 
     def save(self, commit=True):
         user = super(RegistrationForm, self).save(commit=False)
