@@ -11,7 +11,7 @@
       <form method="post">
           {% csrf_token %}
           {% for field in authentication_form %}
-            <label>{{ field.label_tag }}</label>
+            <label class="login-field-tag">{{ field.label_tag }}</label>
             <ul>
               <li>{{ field }}</li>
             </ul>

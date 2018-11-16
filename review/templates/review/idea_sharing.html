@@ -9,10 +9,6 @@
       <p class="count">10/12</p>
       <a href="{% url 'review:listening_review' %}" class="form-back">Back</a>
     </div>
-    <div class="vert-line-1"></div>
-    <div class="vert-line-2"></div>
-    <div class="vert-line-3"></div>
-    <div class="vert-line-4"></div>
 
     <p class="trait">Verbal Attentive</p>
     <p class="trait-tag">‘Provides active lsitening through rembering conversation question or clarifying'</p>
@@ -20,14 +16,62 @@
     <div class="row">
       <ul>
         <li class="col-md-2">Fails</li>
+        <div class="col-md-2-split">
+          <div class="col-md-2-circle">
+            <div class="dropdown-content-2">
+              <a>Appears to be disinterested in this trait</a>
+            </div>
+            <p>?</p>
+          </div>
+        </div>
+
         <li class="col-md-3">Under Prompting</li>
+        <div class="col-md-3-split">
+          <div class="col-md-3-circle">
+            <div class="dropdown-content-3">
+              <a>Only does this under supervision</a>
+            </div>
+            <p>?</p>
+          </div>
+        </div>
+
         <li class="col-md-4">Always</li>
+        <div class="col-md-4-split">
+          <div class="col-md-4-circle">
+            <div class="dropdown-content-4">
+              <a>Doesn’t fail or is interested in this trait</a>
+            </div>
+            <p>?</p>
+          </div>
+        </div>
+
         <li class="col-md-5">Prompts Others</li>
+        <div class="col-md-5-split">
+          <div class="col-md-5-circle">
+            <div class="dropdown-content-5">
+              <a>Takes an active role in encouraging this trait</a>
+            </div>
+            <p>?</p>
+          </div>
+        </div>
+
         <li class="col-md-6">Teaches</li>
+        <div class="col-md-6-split">
+          <div class="col-md-6-circle">
+            <div class="dropdown-content-6">
+              <a>Teaches practices and methods to help improve this trait among others</a>
+            </div>
+            <p>?</p>
+          </div>
+        </div>
         </ul>
     </div>
 
     <form method ="post" id="review_form">
+      <div class="vert-line-1"></div>
+      <div class="vert-line-2"></div>
+      <div class="vert-line-3"></div>
+      <div class="vert-line-4"></div>
       {% csrf_token %}
       {{ formset.management_form }}
       {% for user,form in userforms %}

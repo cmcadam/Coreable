@@ -630,11 +630,6 @@ p.trait {
   height: 16px;
   font-family: Graphik;
   font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #4a4a4a;
   margin-left: 330px;
   margin-top: 37px;
@@ -662,45 +657,305 @@ li {
   padding: 0;
 }
 
-.fails-parent {
-  position: absolute;
-}
-
-.fails-dropdown {
+.dropdown-content-2 {
     display: none;
-    position: relative;
+    position: absolute;
     background-color: #f1f1f1;
-    box-shadow: 0px;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    padding: 15px;
+    margin-top: 20px;
 }
 
-.fails-parent:hover .fails-dropdown {
+.dropdown-content-2 a {
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+
+.col-md-2-split:hover .dropdown-content-2 {
   display: block;
 }
 
+.col-md-2-split:hover .col-md-2-circle {
+  background-color: #007bff;
+}
+
+.col-md-2-split {
+  margin-left: 35px;
+  position: absolute;
+  margin-top: -10px;
+}
+
+.col-md-2-circle {
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  background: #dfdfdf;
+  position: absolute;
+  margin-top: -20px;
+}
+
+.col-md-2-circle p {
+  font-family: Graphik;
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+  text-align: center;
+  padding-top: 3px;
+}
+
 .col-md-3 {
-  margin-left: 120px;
+  margin-left: 122px;
   width: 129px;
   padding: 0;
 }
 
+.dropdown-content-3 {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.dropdown-content-3 a {
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.col-md-3-split:hover .dropdown-content-3 {
+  display: block;
+}
+
+.col-md-3-split:hover .col-md-3-circle {
+  background-color: #007bff;
+}
+
+.col-md-3-split {
+  margin-left: 285px;
+  position: absolute;
+  margin-top: -10px;
+}
+
+.col-md-3-circle {
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  background: #dfdfdf;
+  position: absolute;
+  margin-top: -20px;
+}
+
+.col-md-3-circle p {
+  font-family: Graphik;
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+  text-align: center;
+  padding-top: 3px;
+}
+
 .col-md-4 {
-  margin-left: 31px;
+  margin-left: 36px;
   width: 52px;
   padding: 0;
 }
 
+.dropdown-content-4 {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.dropdown-content-4 a {
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.col-md-4-split:hover .dropdown-content-4 {
+  display: block;
+}
+
+.col-md-4-split:hover .col-md-4-circle {
+  background-color: #007bff;
+}
+
+.col-md-4-split {
+  margin-left: 375px;
+  position: absolute;
+  margin-top: -10px;
+}
+
+.col-md-4-circle {
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  background: #dfdfdf;
+  position: absolute;
+  margin-top: -20px;
+}
+
+.col-md-4-circle p {
+  font-family: Graphik;
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+  text-align: center;
+  padding-top: 3px;
+}
+
 .col-md-5 {
-  margin-left: 108px;
+  margin-left: 105px;
   width: 118px;
   padding: 0;
+  position: relative;
+}
+
+.dropdown-content-5 {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.dropdown-content-5 a {
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.col-md-5-split:hover .dropdown-content-5 {
+  display: block;
+}
+
+.col-md-5-split:hover .col-md-5-circle {
+  background-color: #007bff;
+}
+
+.col-md-5-split {
+  margin-left: 600px;
+  position: absolute;
+  margin-top: -10px;
+}
+
+.col-md-5-circle {
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  background: #dfdfdf;
+  position: absolute;
+  margin-top: -20px;
+}
+
+.col-md-5-circle p {
+  font-family: Graphik;
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+  text-align: center;
+  padding-top: 3px;
 }
 
 .col-md-6 {
-  margin-left: 42px;
+  margin-left: 41px;
   width: 62px;
   padding: 0;
+}
+
+.dropdown-content-6 {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.dropdown-content-6 a {
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.col-md-6-split:hover .dropdown-content-6 {
+  display: block;
+}
+
+.col-md-6-split:hover .col-md-6-circle {
+  background-color: #007bff;
+}
+
+.col-md-6-split {
+  margin-left: 705px;
+  position: absolute;
+  margin-top: -10px;
+}
+
+.col-md-6-circle {
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  background: #dfdfdf;
+  position: absolute;
+  margin-top: -20px;
+}
+
+.col-md-6-circle p {
+  font-family: Graphik;
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+  text-align: center;
+  padding-top: 3px;
 }
 
 .naming {
@@ -722,38 +977,34 @@ li {
 
 .vert-line-1 {
   margin-left: 490px;
-  height: 207.8px;
+  height: 46%;
   opacity: 0.5;
   border: solid 0.5px #979797;
   position: absolute;
-  margin-top: 278px;
 }
 
 .vert-line-2 {
   margin-left: 650px;
-  height: 207.8px;
+  height: 46%;
   opacity: 0.5;
   border: solid 0.5px #979797;
   position: absolute;
-  margin-top: 278px;
 }
 
 .vert-line-3 {
   margin-left: 810px;
-  height: 207.8px;
+  height: 46%;
   opacity: 0.5;
   border: solid 0.5px #979797;
   position: absolute;
-  margin-top: 278px;
 }
 
 .vert-line-4 {
   margin-left: 970px;
-  height: 207.8px;
+  height: 46%;
   opacity: 0.5;
   border: solid 0.5px #979797;
   position: absolute;
-  margin-top: 278px;
 }
 
 .trait-tag {
@@ -768,7 +1019,7 @@ li {
   letter-spacing: normal;
   color: #4a4a4a;
   margin-left: 330px;
-  margin-top: 32px;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -875,6 +1126,18 @@ li {
   color: #6c6c6c;
 }
 
+.login-field-tag {
+  height: 14px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  margin-top: 20px;
+}
+
 .signup-field-tag {
   height: 14px;
   font-family: Graphik;
@@ -932,10 +1195,6 @@ li {
   line-height: normal;
   letter-spacing: normal;
   color: #6c6c6c;
-}
-
-#id_review_teams {
-
 }
 
 #id_authenticate-password {
