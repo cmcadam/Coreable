@@ -12,10 +12,10 @@ urlpatterns = [
     url(r'^communication/', views.communication_review, name='communication_review'),
     url(r'^listening/', views.listening_review, name='listening_review'),
     url(r'^idea-sharing/', views.idea_sharing_review, name='idea_sharing_review'),
-    url(r'^delivery/', views.delivery_review, name='delivery_review'),
-    url(r'^complete/', views.review_complete, name='review_complete'),
-    url(r'^review-options/', views.review_options, name='review_options'),
+    # url(r'^delivery/', views.delivery_review, name='delivery_review'),
+    url(r'^feedback/', views.feedback, name='feedback'),
 
+    url(r'^review-options/', views.review_options, name='review_options'),
     url(r'^observe/', views.observe_review, name='observe_review'),
     url(r'^analyse/', views.analyse_review, name='analyse_review'),
     url(r'^evaluate/', views.evaluate_review, name='evaluate_review'),

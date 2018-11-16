@@ -10,10 +10,7 @@
       <a href="{% url 'review:review_options' %}" class="form-back">Back</a>
     </div>
 
-    <div class="vert-line-1"></div>
-    <div class="vert-line-2"></div>
-    <div class="vert-line-3"></div>
-    <div class="vert-line-4"></div>
+
 
     <p class="trait">Emotional Intelligence</p>
     <p class="trait-tag">'Actively creates a pleasant human environment for work, show empathy, accountability, humility, friendliness and unselfishness'</p>
@@ -35,6 +32,10 @@
     </div>
 
     <form method ="post" id="review_form">
+      <div class="vert-line-1"></div>
+      <div class="vert-line-2"></div>
+      <div class="vert-line-3"></div>
+      <div class="vert-line-4"></div>
       {% csrf_token %}
       {{ formset.management_form }}
       {% for user,form in userforms %}

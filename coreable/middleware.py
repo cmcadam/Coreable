@@ -34,3 +34,4 @@ class LoginRequiredMiddleware:
 
         else:
             return redirect(settings.LOGIN_URL)
+            # return redirect('/home/landing')

@@ -6,12 +6,19 @@
 
     {% block content %}
     <br>
-    <h1>Review Complete</h1>
-    <p>Thank you for completing the survey, your results will be displayed soon!</p>
+    <h1>Feedback</h1>
+    <!-- <p>Thank you for completing the survey, your results will be displayed soon!</p>
     <p>Please take the time to complete the feedback form!</p>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn btn-primary" type="submit" >Submit</button>
-    </form>
+    </form> -->
+    <h4>Please give an example of a time when {{random_user}} demonstrated {{random_trait}}</h4>
+    <textarea rows="4" cols="50">
+
+    </textarea>
+    <br>
+    <button class="btn btn-primary" type="submit">Submit</button>
+
     {% endblock %}

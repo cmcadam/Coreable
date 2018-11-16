@@ -42,3 +42,6 @@ def contact_page(request):
 
 def landing_page(request):
     return render(request, 'home/landing.html')
+
+def about_page(request):
+    return render(request, 'home/about.html')

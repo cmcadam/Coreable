@@ -7,11 +7,12 @@ from accounts.forms import (
     CreateTeamForm,
     SelectTeamForm,
 )
-from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth import update_session_auth_hash, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from accounts.models import UserProfile
+
 
 # Register page view
 def register(request):

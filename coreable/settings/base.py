@@ -132,4 +132,5 @@ LOGIN_EXEMPT_URLS = (
     r'^home/login-or-signup/$',
     r'^home/features/$',
     r'^home/contact/$',
+    r'^home/about/$',
 )

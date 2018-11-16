@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render, redirect
 from review.forms import ReviewForm, FeedbackForm
 from django.http import HttpResponse
@@ -243,7 +244,7 @@ def idea_sharing_review(request):
                 )
                 i += 1
 
-            return redirect('/review/delivery')
+            return redirect('/review/feedback')
     else:
         ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
         formset = ReviewFormSet()
@@ -251,31 +252,46 @@ def idea_sharing_review(request):
         args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
         return render(request, 'review/idea_sharing.html', args)
 
-def delivery_review(request):
+# def delivery_review(request):
+#     users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
+#     if request.method == 'POST':
+#         ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+#         formset = ReviewFormSet(request.POST)
+#         if formset.is_valid():
+#             i = 0
+#             while i < len(users):
+#                 Review.objects.create(
+#                     reviewer = request.user,
+#                     reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
+#                     trait = 'delivery',
+#                     trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
+#                 )
+#                 i += 1
+#
+#             return redirect('/review/complete')
+#     else:
+#         ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
+#         formset = ReviewFormSet()
+#         UserForms = zip(users, formset)
+#         args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
+#         return render(request, 'review/delivery.html', args)
+
+def feedback(request):
     users = UserProfile.objects.filter(review_team=request.user.userprofile.review_team)
-    if request.method == 'POST':
-        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
-        formset = ReviewFormSet(request.POST)
-        if formset.is_valid():
-            i = 0
-            while i < len(users):
-                Review.objects.create(
-                    reviewer = request.user,
-                    reviewee = User.objects.get(pk=int(request.POST.get('form-{}-pk'.format(i)))),
-                    trait = 'delivery',
-                    trait_score = int(request.POST.get('form-{}-trait_score'.format(i))),
-                )
-                i += 1
-
-            return redirect('/review/complete')
-    else:
-        ReviewFormSet = formset_factory(ReviewForm, extra=len(users))
-        formset = ReviewFormSet()
-        UserForms = zip(users, formset)
-        args = {'team_members': users, 'formset': formset, 'userforms': UserForms}
-        return render(request, 'review/delivery.html', args)
-
-def review_complete(request):
+    traits = [
+        'emotional intelligence',
+        'moral trust',
+        'resilience',
+        'flexibility',
+        'initiative',
+        'empowering others',
+        'clarity',
+        'culture',
+        'non verbal conversation',
+        'verbal attention',
+    ]
+    random_user = random.choice(users)
+    random_trait = random.choice(traits)
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
@@ -283,7 +299,7 @@ def review_complete(request):
             return redirect('/home')
     else:
         form = FeedbackForm()
-        args = {'form': form}
+        args = {'form': form, 'random_user': random_user, 'random_trait': random_trait}
         return render(request, 'review/feedback.html', args)
 
 def review_options(request):

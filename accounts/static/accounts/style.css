@@ -9,6 +9,12 @@
 
 /** Global **/
 
+@font-face {
+  font-family: Graphik;
+  src: url('../fonts/Graphik/Graphik-Regular.oft') format("opentype");
+    /* local('Graphik'); */
+}
+
 nav {
   width: 1440px;
   height: 95px;
