@@ -5,8 +5,9 @@
     {% endblock %}
 
     {% block content %}
-    <h1>Login Here</h1>
-    <div class="form-group">
+    <div class="login-container">
+    <h1 class="login-head">Login</h1>
+    <div class="form-group-login">
       <form method="post">
           {% csrf_token %}
           {% for field in authentication_form %}
@@ -16,23 +17,27 @@
             </ul>
 
           {% endfor %}
-          <button class="btn btn-primary" type="submit" name="authenticate">Login</button>
+          <button class="btn btn-fourth" type="submit" name="authenticate">Login</button>
+          <a class="reset-link" href="{% url 'accounts:reset_password' %}">Reset Password</a>
       </form>
     </div>
+    </div>
 
-    <h1>Register</h1>
-    <p>You can register here!</p>
-      <div class="form-group">
-        <form method="post">
+  <div class="signup-board">
+    <div class="signup-container">
+    <h1 class="signup-head">Sign Up</h1>
+      <div class="form-group-signup">
+        <form method="post" class="signup-divder">
             {% csrf_token %}
             {% for field in register_form %}
-              <label>{{ field.label_tag }}</label>
+              <label class="signup-field-tag">{{ field.label_tag }}</label>
               <ul>
                 <li>{{ field }}</li>
               </ul>
 
             {% endfor %}
-            <button class="btn btn-primary" type="submit" name="register">Register</button>
+            <button class="btn btn-third" type="submit" name="register">Get Started</button>
         </form>
       </div>
+  </div>
     {% endblock %}

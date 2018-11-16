@@ -600,6 +600,13 @@ input[type=range]:focus::-ms-fill-upper {
   margin-left:970px;
 }
 
+.btn-secondary{
+  width: 139px;
+  height: 39px;
+  border-radius: 5px;
+  background-color: #0d59a6;
+}
+
 .page-count {
   margin-top: 61px;
 }
@@ -797,4 +804,287 @@ li {
   border: solid 1px #e4e4e4;
   float: left;
   margin-left: 20px;
+}
+
+/** Login **/
+.login-container {
+  margin-left: 253px;
+  margin-top: 130px;
+  float: left;
+}
+
+.signup-board{
+  width: 790px;
+  height: 1024px;
+  background-color: #006fcf;
+  margin-top: 0px;
+  margin-left: 650px;
+  position: absolute;
+}
+
+.form-group-signup {
+  margin-top: 56px;
+  height: 14px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.reset-link {
+  display: block;
+  margin-top: 15px;
+}
+
+.form-group-login {
+  margin-top: 56px;
+  height: 14px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+.signup-field-tag {
+  height: 14px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.signup-container{
+  margin-left: 243px;
+  margin-top: 130px;
+}
+
+.login-head {
+  width: 131px;
+  height: 50px;
+  font-family: Graphik;
+  font-size: 50px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.signup-head {
+  width: 185px;
+  height: 50px;
+  font-family: Graphik;
+  font-size: 50px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+#id_authenticate-username {
+  width: 275px;
+  height: 44px;
+  -webkit-appearance: none;
+  padding-left: 15px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+#id_authenticate-password {
+  width: 275px;
+  height: 44px;
+  -webkit-appearance: none;
+  padding-left: 15px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+#id_register-username {
+  width: 275px;
+  height: 44px;
+  -webkit-appearance: none;
+  padding-left: 15px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+#id_register-first_name {
+  width: 275px;
+  height: 44px;
+  -webkit-appearance: none;
+  padding-left: 15px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+#id_register-last_name {
+  width: 275px;
+  height: 44px;
+  -webkit-appearance: none;
+  padding-left: 15px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+#id_register-email {
+  width: 275px;
+  height: 44px;
+  -webkit-appearance: none;
+  padding-left: 15px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+#id_register-password1 {
+  width: 275px;
+  height: 44px;
+  -webkit-appearance: none;
+  padding-left: 15px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+#id_register-password2 {
+  width: 275px;
+  height: 44px;
+  -webkit-appearance: none;
+  padding-left: 15px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+.id_register-username {
+  width: 71px;
+  height: 14px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.id_authenticate-username {
+  width: 93px;
+  height: 14px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+.login-sub{
+  width: 93px;
+  height: 14px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+}
+
+.btn-third {
+  width: 262px;
+  height: 56px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  margin-top: 30px;
+  font-family: Graphik;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+.btn-fourth{
+  width: 262px;
+  height: 56px;
+  border-radius: 5px;
+  background-color: #4a90e2;
+  margin-top: 30px;
+  font-family: Graphik;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
 }
