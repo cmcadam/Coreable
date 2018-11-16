@@ -657,6 +657,23 @@ li {
   padding: 0;
 }
 
+.fails-parent {
+  position: absolute;
+}
+
+.fails-dropdown {
+    display: none;
+    position: relative;
+    background-color: #f1f1f1;
+    box-shadow: 0px;
+    z-index: 1;
+    padding: 15px;
+}
+
+.fails-parent:hover .fails-dropdown {
+  display: block;
+}
+
 .col-md-3 {
   margin-left: 120px;
   width: 129px;
@@ -910,6 +927,10 @@ li {
   line-height: normal;
   letter-spacing: normal;
   color: #6c6c6c;
+}
+
+#id_review_teams {
+
 }
 
 #id_authenticate-password {
