@@ -637,7 +637,8 @@ p.trait {
 }
 
 .row {
-  margin-left: 330px;
+  /**margin-left: 330px;*/
+  margin-left: 395px;
   margin-top: 60px;
 }
 
@@ -652,7 +653,7 @@ li {
 }
 
 .col-md-2 {
-  margin: 0;
+  margin-left: 0;
   width: 33px;
   padding: 0;
 }
@@ -714,7 +715,7 @@ li {
 }
 
 .col-md-3 {
-  margin-left: 122px;
+  margin-left: 73.5px;
   width: 129px;
   padding: 0;
 }
@@ -747,7 +748,7 @@ li {
 }
 
 .col-md-3-split {
-  margin-left: 285px;
+  margin-left: 235px;
   position: absolute;
   margin-top: -10px;
 }
@@ -775,7 +776,7 @@ li {
 }
 
 .col-md-4 {
-  margin-left: 36px;
+  margin-left: 65px;
   width: 52px;
   padding: 0;
 }
@@ -808,7 +809,7 @@ li {
 }
 
 .col-md-4-split {
-  margin-left: 375px;
+  margin-left: 355px;
   position: absolute;
   margin-top: -10px;
 }
@@ -836,7 +837,7 @@ li {
 }
 
 .col-md-5 {
-  margin-left: 105px;
+  margin-left: 80px;
   width: 118px;
   padding: 0;
   position: relative;
@@ -870,7 +871,7 @@ li {
 }
 
 .col-md-5-split {
-  margin-left: 600px;
+  margin-left: 555px;
   position: absolute;
   margin-top: -10px;
 }
@@ -898,7 +899,7 @@ li {
 }
 
 .col-md-6 {
-  margin-left: 41px;
+  margin-left: 65px;
   width: 62px;
   padding: 0;
 }
@@ -931,7 +932,7 @@ li {
 }
 
 .col-md-6-split {
-  margin-left: 705px;
+  margin-left: 665px;
   position: absolute;
   margin-top: -10px;
 }
