@@ -837,7 +837,7 @@ li {
 }
 
 .col-md-5 {
-  margin-left: 80px;
+  margin-left: 65px;
   width: 118px;
   padding: 0;
   position: relative;
@@ -871,7 +871,7 @@ li {
 }
 
 .col-md-5-split {
-  margin-left: 555px;
+  margin-left: 560px;
   position: absolute;
   margin-top: -10px;
 }
@@ -899,7 +899,7 @@ li {
 }
 
 .col-md-6 {
-  margin-left: 65px;
+  margin-left: 40px;
   width: 62px;
   padding: 0;
 }
